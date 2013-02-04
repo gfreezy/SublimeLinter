@@ -30,7 +30,7 @@ libs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'modules', '
 if libs_path not in sys.path:
     sys.path.insert(0, libs_path)
 
-for mod in ['capp_lint', 'pep8', 'pyflakes', 'pyflakes.checker', 'pyflakes.messages']:
+for mod in ['capp_lint']:
     m = __import__(mod)
     print('imported {0}'.format(mod))
 
