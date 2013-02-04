@@ -36,4 +36,4 @@ You need `flake8` installed to lint Python. And make sure `flake8` is in PATH.
 
 Troubleshooting
 ---------------
-Sublime Text 3 doesn't recognise custom settings(**Setting - User**). So to customize your SublimeLinter, you have to change the package's default setting file(**Setting - Default**).
+Sublime Text 3 doesn't recognise custom settings( **Setting - User** ). So to customize your SublimeLinter, you have to change the package's default setting file( **Setting - Default** ).
