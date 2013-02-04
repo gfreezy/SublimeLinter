@@ -204,12 +204,12 @@ class BaseLinter(object):
                                        stderr=subprocess.STDOUT,
                                        startupinfo=self.get_startupinfo())
             process.stdin.write(code.encode('utf-8'))
-            result = process.communicate()[0]
+            result = process.communicate()[0].decode('utf-8')
         finally:
             if tempfilePath:
                 os.remove(tempfilePath)
 
-        return result.decode('utf-8').strip()
+        return result.strip()
 
     def parse_errors(self, view, errors, lines, errorUnderlines, violationUnderlines, warningUnderlines, errorMessages, violationMessages, warningMessages):
         pass

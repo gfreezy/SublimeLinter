@@ -8,6 +8,7 @@ from .base_linter import BaseLinter
 CONFIG = {
     'language': 'Python',
     'executable': 'flake8',
+    'test_existence_args': '--version',
     'lint_args': '{filename}',
     'input_method': 3,
 }
@@ -16,7 +17,7 @@ CONFIG = {
 class Linter(BaseLinter):
     def parse_errors(self, view, errors, lines, errorUnderlines, violationUnderlines, warningUnderlines, errorMessages, violationMessages, warningMessages):
         for line in errors.splitlines():
-            match = re.match(r'^.+:(?P<line>\d+):(?P<offset>\d+):?\s+(?P<error>.+)', line)
+            match = re.match(r'^.+?:(?P<line>\d+):(?:(?P<offset>\d+):)?\s+(?P<error>.+)', line)
 
             if match:
                 error, line, offset = match.group('error'), match.group('line'), match.group('offset')
