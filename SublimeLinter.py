@@ -626,7 +626,7 @@ def settings_changed():
 
 def reload_settings(view):
     '''Restores user settings.'''
-    settings = sublime.load_settings(__name__ + '.sublime-settings')
+    settings = sublime.load_settings(__name__.split('.')[0] + '.sublime-settings')
     settings.clear_on_change(__name__)
     settings.add_on_change(__name__, settings_changed)
 
