@@ -3,14 +3,13 @@
 
 import re
 
-from .base_linter import BaseLinter
+from .base_linter import BaseLinter, INPUT_METHOD_FILE
 
 CONFIG = {
     'language': 'Python',
     'executable': 'flake8',
     'test_existence_args': '--version',
-    'lint_args': '{filename}',
-    'input_method': 3,
+    'input_method': INPUT_METHOD_FILE,
 }
 
 
@@ -24,3 +23,9 @@ class Linter(BaseLinter):
                 self.add_message(int(line), lines, error, errorMessages)
                 if offset:
                     self.underline_range(view, int(line), int(offset), errorUnderlines)
+
+    def get_lint_args(self, view, code, filename):
+        settings = view.settings()
+        flake8_builtins = ','.join(settings.get('flake8_builtins'))
+        flake8_ignore = ','.join(settings.get('flake8_ignore'))
+        return ('--builtins=%s' % flake8_builtins, '--ignore=%s' % flake8_ignore, filename)
