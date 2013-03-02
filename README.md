@@ -5,7 +5,7 @@ This is a migration of SublimeLinter to Sublime Text 3. Currently, Python lint i
 
 Installing
 ----------
-Package Control doesn't support Sublime Text 3 now. So you have to install SublimeLinter manully.
+Package Control is not avaliable on Sublime Text 3 currently. So you have to install SublimeLinter manually.
 
 **Without Git:** Download the latest source from [GitHub](https://github.com/gfreezy/SublimeLinter) and copy the SublimeLinter folder to your Sublime Text "Packages" directory.
 
@@ -30,10 +30,6 @@ The "Packages" directory is located at:
 
 Python
 -------
-You need `flake8` installed to lint Python. And make sure `flake8` is in PATH.
+You need `flake8` installed to lint Python. And make sure `flake8` is in the PATH variable.
 
     pip install flake8
-
-Troubleshooting
----------------
-Sublime Text 3 doesn't recognise custom settings( **Setting - User** ). So to customize your SublimeLinter, you have to change the package's default setting file( **Setting - Default** ).
